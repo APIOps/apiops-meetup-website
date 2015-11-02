@@ -1,0 +1,26 @@
+<template name="footer">
+  <footer class="text-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-6 footer-left">
+          <ul class="list-inline">
+            <li><a href="https://meteor.com" target="_blank" class="footer-meteor-link"><img src="/meteor-white.png" width=30 height=30> {{_ "build_with_meteor"}}</a></li>
+          </ul>
+        </div>
+        <div class="col-sm-6 footer-right">
+          <ul class="list-inline">
+            {{#if meetupUrl}}
+              <li><a href="{{ meetupUrl }}" class="footer-social-link" target="_blank"><img src="/meetup.png" width=26 height=26></a></li>
+            {{/if}}
+            {{#if twitterUrl}}
+              <li><a href="{{ twitterUrl }}" class="footer-social-link" target="_blank"><i class="ion-social-twitter"></i></a></li>
+            {{/if}}
+            {{#if githubUrl}}
+              <li><a href="{{ githubUrl }}" class="footer-social-link" target="_blank"><i class="ion-social-github"></i></a></li>
+            {{/if}}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+</template>

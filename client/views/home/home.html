@@ -1,0 +1,140 @@
+<template name="home">
+
+  <div class="jumbotron jumbotron-home">
+    <div class="container">
+      <img src="/logo-white.svg" width=425 height=100 class="home-logo img-responsive" alt="{{groupName}}" />
+      <h1 style="font-weight: 600;">NEW BREED OF DEVOPS</h1>
+      <p>
+        Focused on iterative and collaborative <br>
+        Design-First driven API development
+      </p>
+      {{#unless currentUser}}
+      <p>
+        <a href="{{ pathFor 'members'}}" class="btn btn-primary btn-lg" data-login-with="meetup"><img src="/meetup.png" width=26 height=26> {{_ "join_us"}}</a>
+      </p>
+      {{/unless}}
+    </div>
+  </div>
+
+  {{#if upcomingMeetup.count}}
+  {{#each upcomingMeetup}}
+  <div class="homepage-section homepage-section-meetups">
+    <div class="container">
+      <h3 class="section-heading">Next Meetup</h3>
+      <hr>
+      <div class="row">
+        <div class="col-sm-3">
+          <div class="panel panel-default text-center">
+            <div class="panel-heading">
+              {{ calendarDay dateTime}}
+            </div>
+            <div class="panel-body">
+              <h1>{{ calendarDate dateTime}}</h1>
+            </div>
+            <div class="panel-footer">
+              {{ calendarMonth dateTime}}
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-9">
+          <h2><a href="{{ pathFor 'meetupDetail' }}">{{ title }}</a></h2>
+
+          <h5 class="text-muted">
+            <i class="ion-calendar"></i> {{ longDate dateTime}}
+          </h5>
+          <p>
+            {{ truncate description 140 }}
+          </p>
+          <p>
+            <a href="{{ pathFor 'meetupDetail' }}" class="btn btn-primary btn-lg">View Details</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  {{/each}}
+  {{/if}}
+
+  <div class="homepage-section" id="code-of-conduct">
+    <div class="container">
+      <h3 class="section-heading">Code of Conduct</h3>
+      <hr>
+      <div class="row">
+        <div class="col-lg-6 code-of-conduct-section">
+          <h4 class="subsection-heading">Stay on topic</h4>
+          <p>
+            This community is build around APIs and topics related to those,
+            especially APIOps, APItalists and Design-First principle. If you wish to
+            discuss something else, you can use #bar channel in community Slack or take the discussion somewhere else.
+          </p>
+        </div>
+        <div class="col-lg-6 code-of-conduct-section">
+          <h4 class="subsection-heading">Be welcoming</h4>
+          <p>
+            We strive to be a community that  welcomes and supports people of all backgrounds and identities. This  includes, but is not limited to members of any race, ethnicity, culture,  national origin, colour, immigration status, social and economic class,  educational level, sex, sexual orientation, gender identity and  expression, age, size, family status, political belief, religion, and  mental and physical ability.
+          </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-6 code-of-conduct-section">
+          <h4 class="subsection-heading">Be considerate</h4>
+          <p>
+            Your work will be used by other  people, and you in turn will depend on the work of others. Any decision  you take will affect users and colleagues, and you should take those  consequences into account when making decisions. Remember that we’re aiming at  world-wide community, so you might not be communicating in someone  else’s primary language.
+          </p>
+        </div>
+        <div class="col-lg-6 code-of-conduct-section">
+          <h4 class="subsection-heading">Be respectful</h4>
+          <p>
+            Not all of us will agree all the  time, but disagreement is no excuse for poor behavior and poor manners.  We might all experience some frustration now and then, but we cannot  allow that frustration to turn into a personal attack. It’s important to  remember that a community where people feel uncomfortable or threatened  is not a productive one.
+          </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-6 code-of-conduct-section">
+          <h4 class="subsection-heading">Be careful in the words that you choose</h4>
+          <p>
+            we  are a community of professionals, and we conduct ourselves  professionally. Be kind to others. Do not insult or put down other  participants. Harassment and other exclusionary behavior aren’t  acceptable. This includes, but is not limited to: Violent threats or language directed against another person, Discriminatory jokes and language, Posting sexually explicit or violent material, Posting (or threatening to post) other people’s personally identifying information (“doxing”), Personal insults, especially those using racist or sexist terms, Unwelcome sexual attention, Advocating for, or encouraging, any of the above behavior, Repeated harassment of others. In general, if someone asks you to stop, then stop.
+          </p>
+        </div>
+        <div class="col-lg-6 code-of-conduct-section">
+          <h4 class="subsection-heading">When we disagree</h4>
+          <p>
+            try to understand why:  Disagreements, both social and technical, happen all the time. It is  important that we resolve disagreements and differing views  constructively. Remember that we’re different. The strength of our  community comes from its diversity, people from a wide range of  backgrounds. Different people have different perspectives on issues.  Being unable to understand why someone holds a viewpoint doesn’t mean  that they’re wrong. Don’t forget that it is human to err and blaming  each other doesn’t get us anywhere. Instead, focus on helping to resolve  issues and learning from mistakes.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="homepage-section homepage-section-members">
+    <div class="container">
+      <h3 class="section-heading">{{_ "who_are_we"}}</h3>
+      <hr>
+      <p>
+        {{> _topMembers}}
+      </p>
+      <hr>
+      <p>
+        <a href="{{ pathFor 'members' }}" class="btn btn-default btn-lg">{{_ "view_all_members"}}</a>
+      </p>
+    </div>
+  </div>
+
+  <div class="homepage-section" id="slack">
+    <div class="container">
+      <h3 class="section-heading">Our Community</h3>
+      <hr>
+      <div class="row">
+        <div id="slack-connection">
+          <div id="slack-connection-logo">
+          </div>
+          <div id="slack-connection-org">
+          </div>
+        </div>
+        <p>Join <strong>APIOps community</strong> on Slack</p>
+        <a href="#" class="btn btn-primary btn-lg">Get My Invite</a>
+      </div>
+    </div>
+  </div>
+
+</template>

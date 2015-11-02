@@ -1,0 +1,2 @@
+Template.members.rendered = function() {
+};

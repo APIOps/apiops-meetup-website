@@ -1,0 +1,89 @@
+<template name="meetupDetail">
+
+  <div class="jumbotron contents-block">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-3">
+          <div class="panel panel-default panel-calendar text-center">
+            <div class="panel-heading">
+              {{ calendarDay meetup.dateTime}}
+            </div>
+            <div class="panel-body">
+              <h1>{{ calendarDate meetup.dateTime}}</h1>
+            </div>
+            <div class="panel-footer">
+              {{ calendarMonth meetup.dateTime}}
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-9">
+          <h2>{{ meetup.title }}</h2>
+
+          <h5 class="text-muted">
+            <i class="ion-calendar"></i> {{ longDate meetup.dateTime}}
+          </h5>
+          <div class="meetup-description-html">
+            {{{ meetup.description }}}
+          </div>
+          {{#unless meetup.isPast}}
+          <p>
+            {{#if currentUserIsAttendee}}
+            <button type="button" class="btn btn-primary btn-lg" disabled><i class="ion-checkmark"></i> Going</button>
+            {{else}}
+            <button type="button" class="btn btn-primary btn-lg" data-action="rsvp"><i class="ion-plus"></i> RSVP</button>
+            {{/if}}
+            {{#each meetup.truncatedAttendees}}
+            {{> _profilePhoto profile=profile size="30"}}
+            {{/each}}
+            {{#if displayOverflowAttendees}}
+            <small>and {{ meetup.numberOfOverflowAttendees }} more are going</small>
+            {{/if}}
+          </p>
+          {{/unless}}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="jumbotron">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="embed-responsive embed-responsive-16by9">
+            <iframe src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCGdAs2xESY5hbra99lodGRyypT0yWV7Kk&q={{ urlEncode meetup.location.address}}"></iframe>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <h4>{{ meetup.location.name }}</h4>
+          <h5 class="text-muted">
+            <a href="https://www.google.com/maps/place/{{ urlEncode meetup.location.address}}" target="_blank"><i class="ion-ios7-location"></i> {{ meetup.location.address }}</a>
+          </h5>
+          <p>
+            {{ meetup.location.description }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container text-center meetup-attendees">
+    <h3>{{ attendeesHeading }}</h3>
+    <hr>
+    <p>
+      {{#each meetup.attendees}}
+      {{> _profilePhoto profile=profile size="100"}}
+      {{/each}}
+    </p>
+    <hr>
+    <p>
+      {{#unless meetup.isPast}}
+      {{#if currentUserIsAttendee}}
+      <button type="button" class="btn btn-primary btn-lg" disabled><i class="ion-checkmark"></i> You're Going</button>
+      {{else}}
+      <button type="button" class="btn btn-primary btn-lg" data-action="rsvp"><i class="ion-plus"></i> RSVP</button>
+      {{/if}}
+      {{/unless}}
+    </p>
+  </div>
+
+</template>

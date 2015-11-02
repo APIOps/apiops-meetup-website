@@ -1,0 +1,92 @@
+<template name="meetups">
+
+  {{#if upcomingMeetup.count}}
+    <div class="jumbotron contents-block">
+      <div class="container">
+        <div class="row">
+          {{#each upcomingMeetup}}
+            <div class="col-sm-3">
+              <div class="panel panel-default panel-calendar text-center">
+                <div class="panel-heading">
+                  {{ calendarDay dateTime}}
+                </div>
+                <div class="panel-body">
+                  <h1>{{ calendarDate dateTime}}</h1>
+                </div>
+                <div class="panel-footer">
+                  {{ calendarMonth dateTime}}
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-9">
+              <h5 class="text-uppercase">Next Meetup:</h5>
+              <h2><a href="{{ pathFor 'meetupDetail' }}">{{ title }}</a></h2>
+
+              <h5 class="text-muted">
+                <i class="ion-calendar"></i> {{ longDate dateTime}}
+              </h5>
+              <p>
+                {{ truncate description 140 }}
+              </p>
+              <p>
+                <a href="{{ pathFor 'meetupDetail' }}" class="btn btn-primary btn-lg">View Details</a>
+                {{#unless meetup.isPast}}
+                  {{#each truncatedAttendees}}
+                    {{> _profilePhoto profile=profile size="30"}}
+                  {{/each}}
+                  {{#if displayOverflowAttendees}}
+                    <small>and {{ numberOfOverflowAttendees }} more are going</small>
+                  {{/if}}
+                {{/unless}}
+              </p>
+            </div>
+          {{/each}}
+        </div>
+      </div>
+    </div>
+  {{/if}}
+
+  <div class="container">
+    <div class="page-header">
+      {{#if isInRole 'admin'}}
+        <button type="button" class="btn btn-primary pull-right" data-action="fetchMeetups">Fetch Meetups</button>
+      {{/if}}
+      <h3>Previous Meetups</h3>
+    </div>
+
+    <div class="row">
+
+      {{#each previousMeetups}}
+        <div class="col-md-6 meetup-grid-item">
+          <div class="media">
+            <div class="panel panel-default panel-calendar pull-left text-center">
+              <div class="panel-heading">
+                {{ calendarDay dateTime}}
+              </div>
+              <div class="panel-body">
+                <h1>{{ calendarDate dateTime}}</h1>
+              </div>
+              <div class="panel-footer">
+                {{ calendarMonth dateTime}}
+              </div>
+            </div>
+            <div class="media-body">
+              <h4 class="media-heading"><a href="{{ pathFor 'meetupDetail' }}">{{ title }}</a></h4>
+              <h5 class="text-muted">
+                <i class="ion-calendar"></i> {{ longDate dateTime}}
+              </h5>
+              <p>
+                {{ truncate description 140 }}
+              </p>
+              <p>
+                <a href="{{ pathFor 'meetupDetail' }}" class="btn btn-primary">View Details</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      {{/each}}
+
+    </div>
+  </div>
+
+</template>

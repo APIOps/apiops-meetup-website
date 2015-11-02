@@ -1,0 +1,117 @@
+@import '../../stylesheets/mixins.import.less';
+@import '../../stylesheets/variables.import.less';
+
+.jumbotron.jumbotron-home {
+  background: @brand-primary url("/homepage-banner.png") center center no-repeat;
+  background-size: cover;
+  background-blend-mode: overlay;
+  color: #fff;
+  padding: 86px 0;
+  text-align: center;
+
+  .home-logo {
+    margin: 0 auto;
+  }
+
+  h1 {
+    font-size: @font-size-h3;
+  }
+
+  p {
+    font-size: @font-size-large;
+    color: lighten(@brand-primary, 30%);
+    font-weight: 400;
+  }
+
+  .btn-primary {
+    background: #e2373c;
+    border-color: #e2373c;
+  }
+}
+
+.homepage-section {
+  text-align: center;
+  padding: 48px 0;
+}
+
+.homepage-section-meetups {
+  padding-top: 0;
+  text-align: left;
+
+  h3 {
+    text-align: center;
+    font-size: 32px;
+  }
+
+  h2 {
+    margin-top: 0;
+  }
+}
+
+.homepage-section-members {
+  background: #fff;
+
+  .top-members a {
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+  }
+}
+
+.code-of-conduct-section {
+  padding: 40px;
+  text-align: left;
+}
+
+.section-heading {
+  text-transform: none;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+
+.subsection-heading {
+  text-transform: none;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+
+.slack-logo::after {
+  content: "+"
+}
+
+#slack-connection {
+  height: 48px;
+  position: relative;
+  width: 300px;
+  margin: 0px 0px 40px;
+  margin: auto;
+  margin-bottom: 40px;
+}
+
+#slack-connection-logo {
+  display: inline-block;
+  height: 58px;
+  width: 58px;
+  background: rgba(0, 0, 0, 0) url('apiops.png') repeat scroll 0% 0% / cover padding-box border-box;
+  margin: 0px 70px 0px 0px;
+}
+
+#slack-connection-logo:after {
+  color: rgb(214, 214, 214);
+  display: block;
+  height: 17px;
+  left: 0px;
+  position: absolute;
+  text-align: center;
+  top: 15px;
+  width: 300px;
+  content: '+';
+}
+
+#slack-connection-org {
+  display: inline-block;
+  height: 58px;
+  width: 58px;
+  background: rgba(0, 0, 0, 0) url('slack.png') repeat scroll 0% 0% / cover padding-box border-box;
+}
+
