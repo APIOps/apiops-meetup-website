@@ -1,2 +1,0 @@
-Template.memberDetail.rendered = function() {
-};
