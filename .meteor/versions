@@ -60,7 +60,6 @@ matb33:collection-hooks@0.8.1
 meetup@1.6.0
 meteor@1.1.10
 meteor-base@1.0.1
-meteor-vegas:likes-widget@1.0.0
 meteorhacks:async@1.0.0
 meteorhacks:npm@1.5.0
 meteorhacks:subs-manager@1.6.2

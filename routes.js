@@ -27,6 +27,29 @@ Router.map(function() {
     }
   });
 
+  this.route('meetupDetail', {
+    path: '/meetups/:_id',
+    waitOn: function() {
+      return [
+        subs.subscribe("meetup", this.params._id),
+        subs.subscribe("members")
+      ];
+    },
+    data: function() {
+      return {
+        meetup: Meetups.findOne({_id: this.params._id}),
+        members: Meteor.users.find({}, {sort: {'profile.points': -1}})
+      };
+    },
+    onAfterAction: function() {
+      if(this.ready()) {
+        SEO.set({
+          title: this.data().meetup.title + ' | Meetups | ' + SEO.settings.title
+        });
+      }
+    }
+  });
+
   this.route('members', {
     path: '/members',
     waitOn: function() {
