@@ -37,7 +37,7 @@ Router.map(function() {
     data: function() {
       return {
         meetup: Meetups.findOne({_id: this.params._id}),
-        members: Meteor.users.find({}, {sort: {'profile.points': -1}})
+        members: Meteor.users.find({})
       };
     },
     onAfterAction: function() {
@@ -55,21 +55,12 @@ Router.map(function() {
       return subs.subscribe("members");
     },
     data: {
-      members: Meteor.users.find({}, {sort: {'profile.points': -1}})
+      members: Meteor.users.find({})
     },
     onAfterAction: function() {
       SEO.set({
         title: 'Members | ' + SEO.settings.title
       });
-    }
-  });
-
-  this.route('meteorday', {
-    path: '/meteorday',
-    where: 'server',
-    action: function() {
-      this.response.writeHead(301, {Location: 'http://www.meetup.com/Meteor-Montreal/events/212820662/'});
-      this.response.end();
     }
   });
 

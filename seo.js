@@ -1,9 +1,9 @@
 Meteor.startup(function() {
   if(Meteor.isClient) {
     SEO.config({
-      title: 'Meteor Montreal',
+      title: 'APIOPS',
       meta: {
-        'description': 'A Bi-Monthly Meteor.js Meetup in Montreal, QC'
+        'description': 'APIOPS Tampere Community Portal'
       },
       og: {
         'image': Meteor.absoluteUrl('share-image.png')
