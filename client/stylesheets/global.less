@@ -46,7 +46,7 @@ strong, b {
 footer {
   margin-top: 48px;
   border-top: 1px solid @gray-lighter;
-  padding: 40px 0;
+  padding: 30px 0;
   background: @brand-primary;
   background-blend-mode: color-burn;
   background-size: cover;
@@ -64,6 +64,7 @@ footer {
 
   .footer-left {
     text-align: left;
+    margin-top: 5px;
 
     @media (max-width: @screen-xs-max) {
       text-align: center;
@@ -78,27 +79,21 @@ footer {
   }
 
   .footer-meteor-link {
-    img {
-      margin-top: -6px;
-      margin-right: 6px;
-
-      @media (max-width: @screen-xs-max) {
-        display: block;
-        margin: 6px auto;
-      }
+    @media (max-width: @screen-xs-max) {
+      display: block;
+      margin: 6px auto;
     }
   }
+}
 
-  .footer-social-link {
-    img {
-      margin-top: -10px;
-    }
-
-    i {
-      font-size: 24px;
-    }
+.footer-social-link {
+  img {
+    margin-top: -10px;
   }
 
+  i {
+    font-size: 24px;
+  }
 }
 
 .panel-body {
