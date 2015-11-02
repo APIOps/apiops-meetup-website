@@ -106,17 +106,43 @@
     </div>
   </div>
 
-  <div class="homepage-section homepage-section-members">
+  <div class="homepage-section" id="local-groups">
     <div class="container">
-      <h3 class="section-heading">{{_ "who_are_we"}}</h3>
-      <hr>
-      <p>
-        {{> _topMembers}}
-      </p>
-      <hr>
-      <p>
-        <a href="{{ pathFor 'members' }}" class="btn btn-default btn-lg">{{_ "view_all_members"}}</a>
-      </p>
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <h3 class="section-heading">Local Jam Groups</h3>
+          <hr>
+          <p>APIOps global community builds around local communities, which might be city or area based.
+            Our groups are organized in Meetup.com. If you can't find existing
+            local group in your area, you can contact <b>Jarkko Moilanen (<a href="https://twitter.com/kyyberi/">@kyyberi</a>)</b>
+            and we'll help you ignite local group.
+          </p>
+          <p>
+            If you want to start APIOps Jam group in your area, <span style="text-decoration:underline;"><a href="#contact">contact us</a></span> and we'll help you get started!
+          </p>
+        </div>
+      </div>
+      <div class="row meetup-badges">
+        <div class="col-sm-4">
+          <p>
+            <a href="http://www.meetup.com/APIOps-Tampere/"><img src="/badges/tampere.png"/></a>
+          </p>
+        </div>
+
+        <div class="col-sm-4">
+          <p>
+            <img src="/badges/helsinki.png"/>
+          </p>
+        </div>
+
+        <div class="col-sm-4">
+          <p>
+            <img src="/badges/zurich.png"/>
+          </p>
+        </div>
+
+      </div>
+
     </div>
   </div>
 
