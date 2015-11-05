@@ -1,6 +1,11 @@
 var subs = new SubsManager();
 
 Router.map(function() {
+
+  Router.configure({
+    loadingTemplate: 'loading'
+  });
+
   this.route('home', {
     path: '/',
     waitOn: function() {
