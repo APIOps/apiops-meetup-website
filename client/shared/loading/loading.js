@@ -3,7 +3,7 @@ Template.loading.rendered = function () {
     this.loading = window.pleaseWait({
       logo: '/apiops_loader.png',
       backgroundColor: '#fff',
-      loadingHtml: message + spinner
+      loadingHtml: message
     });
     Session.set('loadingSplash', true); // just show loading splash once
   }
