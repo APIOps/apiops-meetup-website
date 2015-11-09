@@ -33,16 +33,20 @@ Router.map(function() {
   });
 
   this.route('meetupDetail', {
-    path: '/meetups/:_id',
+    name: 'meetupDetail',
+    path: '/meetups/:meetupId-:slug',
     waitOn: function() {
       return [
-        subs.subscribe("meetup", this.params._id),
+        subs.subscribe("meetup", this.params.slug),
         subs.subscribe("members")
       ];
     },
+    subscriptions: function() {
+      return Meteor.subscribe('meetupDetail', this.params.slug);
+    },
     data: function() {
       return {
-        meetup: Meetups.findOne({_id: this.params._id}),
+        meetup: Meetups.findOne({"slug": this.params.slug}),
         members: Meteor.users.find({}, {sort: {'profile.points': -1}})
       };
     },

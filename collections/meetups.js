@@ -31,3 +31,14 @@ Meetups.helpers({
 Meetups.before.insert(function (userId, doc) {
   doc.createdAt = moment().toDate();
 });
+
+Meetups.friendlySlugs([
+  {
+    slugFrom: 'title',
+    slugField: 'slug',
+  },
+  {
+    slugFrom: 'meetupId',
+    slugField: 'meetupId',
+  }
+]);

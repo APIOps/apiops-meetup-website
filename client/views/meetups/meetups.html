@@ -20,7 +20,7 @@
         </div>
         <div class="col-sm-9">
           <h5 class="text-uppercase">Next Meetup:</h5>
-          <h2><a href="{{ pathFor 'meetupDetail' }}">{{ title }}</a></h2>
+          <h2><a href="{{pathFor route='meetupDetail' slug=slug}}">{{ title }}</a></h2>
 
           <h5 class="text-muted">
             <i class="ion-calendar"></i> {{ longDate dateTime}}
@@ -71,7 +71,7 @@
             </div>
           </div>
           <div class="media-body">
-            <h4 class="media-heading"><a href="{{ pathFor 'meetupDetail' }}">{{ title }}</a></h4>
+            <h4 class="media-heading"><a href="{{pathFor route='meetupDetail' slug=slug}}">{{ title }}</a></h4>
             <h5 class="text-muted">
               <i class="ion-calendar"></i> {{ longDate dateTime}}
             </h5>
@@ -79,7 +79,7 @@
               {{ truncate description 140 }}
             </p>
             <p>
-              <a href="{{ pathFor 'meetupDetail' }}" class="btn btn-default">View Details</a>
+              <a href="{{pathFor route='meetupDetail' slug=slug}}" class="btn btn-default">View Details</a>
             </p>
           </div>
         </div>

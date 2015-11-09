@@ -2,6 +2,15 @@ Meteor.publish("meetups", function() {
   return Meetups.find({});
 });
 
+Meteor.publish('meetupDetail', function(slug){
+  check(slug, String);
+  var data = Meetups.find({"slug": slug});
+  if (data) {
+    return data;
+  }
+  this.ready();
+});
+
 Meteor.publishComposite("meetup", function(_id) {
   return {
     find: function() {
