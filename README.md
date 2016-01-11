@@ -1,5 +1,4 @@
-# apiops-meetup
-Apiops Meetup Website 
+# APIOps Meetup Website
 
 Under development
 
